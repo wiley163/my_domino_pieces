@@ -14,3 +14,42 @@
         "icon_class_name": "material-symbols:send"
     }
 }
+
+{
+    "name": "ConfGetterPiece",
+    "description": "将 Airflow dag_run.conf 中指定的 key 提取成下游可直接连线的输出",
+    "dependency": {
+      "requirements_file": "requirements_0.txt"
+    },
+    "input_schema": {
+      "title": "InputModel",
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {"type": "string"},
+          "title": "keys"
+        }
+      },
+      "required": ["keys"]
+    },
+    "output_schema": {
+      "title": "OutputModel",
+      "type": "object",
+      "properties": {
+        "conf_dict": {
+          "type": "object",
+          "title": "conf_dict"
+        }
+      },
+      "required": ["conf_dict"]
+    },
+    "tags": [
+        "param",
+        "conf"
+    ],
+    "style": {
+        "node_label": "HTTP Request",
+        "icon_class_name": "material-symbols:send"
+    }
+  }
