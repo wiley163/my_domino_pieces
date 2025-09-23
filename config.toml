@@ -2,7 +2,7 @@
 REGISTRY_NAME = "Bigknow"
 
 REPOSITORY_NAME = "my_domino_pieces"
-REPOSITORY_LABEL = "行业算法插件"
+REPOSITORY_LABEL = "行业算法插件2"
 
 VERSION = "0.1.0"
 
