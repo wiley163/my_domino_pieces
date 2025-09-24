@@ -1,5 +1,5 @@
 {
-  "SaveImagePiece": {
+  "ConfGetterPiece": {
     "name": "ConfGetterPiece",
     "dependency": {
       "dockerfile": null,
@@ -7,40 +7,150 @@
     },
     "tags": ["param","conf"],
     "style": {
-      "node_label": "Save Image",
+      "node_label": "参数输入器",
       "node_type": "default",
       "node_style": {
         "backgroundColor": "#ebebeb"
       },
       "useIcon": true,
-      "icon_class_name": "material-symbols:image-outline",
+      "icon_class_name": "lucide:toy-brick",
       "iconStyle": {
         "cursor": "pointer"
       }
     },
-    "description": "Save base64 as image file to results folder.",
+    "description": "将 Airflow dag_run.conf 中指定的 key 提取成下游可直接连线的输出",
     "input_schema": {
-      "title": "InputModel",
-      "type": "object",
-      "properties": {
-        "keys": {
-          "type": "array",
-          "items": { "type": "string" },
-          "title": "keys"
-        }
-      },
-      "required": ["keys"]
+        "$defs": {
+            "InputKwargsModel": {
+                "properties": {
+                    "kwarg_name": {
+                        "default": null,
+                        "description": "Argument name.",
+                        "from_upstream": "never",
+                        "title": "Kwarg Name",
+                        "type": "string"
+                    },
+                    "kwarg_value": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "items": {},
+                                "type": "array"
+                            },
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "object"
+                            },
+                            {
+                                "format": "date",
+                                "type": "string"
+                            },
+                            {
+                                "format": "time",
+                                "type": "string"
+                            },
+                            {
+                                "format": "date-time",
+                                "type": "string"
+                            }
+                        ],
+                        "default": null,
+                        "description": "Argument value.",
+                        "from_upstream": "always",
+                        "title": "Kwarg Value"
+                    }
+                },
+                "title": "InputKwargsModel",
+                "type": "object"
+            },
+            "OutputModifierItemType": {
+                "description": "OutputArgsType Enum",
+                "enum": [
+                    "string",
+                    "integer",
+                    "float",
+                    "boolean",
+                    "array"
+                ],
+                "title": "OutputModifierItemType",
+                "type": "string"
+            },
+            "OutputModifierModel": {
+                "properties": {
+                    "name": {
+                        "description": "Name of the output argument.",
+                        "from_upstream": "never",
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "type": {
+                        "allOf": [
+                            {
+                                "$ref": "#/$defs/OutputModifierItemType"
+                            }
+                        ],
+                        "default": "string",
+                        "description": "Type of the output argument.",
+                        "from_upstream": "never"
+                    },
+                    "description": {
+                        "default": "",
+                        "description": "Description of the output argument.",
+                        "from_upstream": "never",
+                        "title": "Description",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "title": "OutputModifierModel",
+                "type": "object"
+            }
+        },
+        "description": "ParamBuilder Input Model",
+        "properties": {
+            "output_args": {
+                "default": [
+                    {
+                        "description": "An example string output",
+                        "name": "output_1",
+                        "type": "string"
+                    },
+                    {
+                        "description": "An example integer output",
+                        "name": "output_2",
+                        "type": "integer"
+                    }
+                ],
+                "description": "Output arguments.",
+                "from_upstream": "never",
+                "items": {
+                    "$ref": "#/$defs/OutputModifierModel"
+                },
+                "title": "Output Args",
+                "type": "array"
+            }
+        },
+        "title": "InputModel",
+        "type": "object"
     },
     "output_schema": {
-      "title": "OutputModel",
-      "type": "object",
-      "properties": {
-        "conf_dict": {
-          "type": "object",
-          "title": "conf_dict"
-        }
-      },
-      "required": ["conf_dict"]
+        "additionalProperties": true,
+        "description": "ParamBuilder Output Model",
+        "properties": {},
+        "title": "OutputModel",
+        "type": "object"
     },
     "secrets_schema": null,
     "source_url": "https://github.com/wiley163/my_domino_pieces/tree/main/pieces/ConfGetterPiece"

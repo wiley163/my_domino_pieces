@@ -1,8 +1,8 @@
 [repository]
 REGISTRY_NAME = "Bigknow"
 
-REPOSITORY_NAME = "my_domino_pieces"
-REPOSITORY_LABEL = "Bigknow Pieces Repository"
+REPOSITORY_NAME = "bigknow_pieces"
+REPOSITORY_LABEL = "行业算法插件库"
 
 VERSION = "0.1.0"
 
