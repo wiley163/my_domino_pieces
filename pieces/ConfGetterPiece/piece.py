@@ -14,7 +14,7 @@ class ConfGetterPiece(BasePiece):
         Input Output args:\n{input_data.output_args}\n
         """)
         
-        output_args: Dict[str, Any] = {"output_1":"para1", "output_2":"para2"}
+        output_args: Dict[str, Any] = {"output_1":"para111111", "output_2":"para222222"}
 
         # Log output
         self.logger.info(output_args)
