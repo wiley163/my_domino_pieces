@@ -9,6 +9,6 @@
             "StringifyPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/wiley163/my_domino_pieces:0.2.8-group0"
+        "source_image": "ghcr.io/wiley163/my_domino_pieces:0.2.9-group0"
     }
 }
