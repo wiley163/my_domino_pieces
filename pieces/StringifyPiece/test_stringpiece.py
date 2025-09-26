@@ -7,7 +7,7 @@ def test_stringpiece_int():
         input_value=10
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str(10) == piece_output.get("output_value", None)
@@ -18,7 +18,7 @@ def test_stringpiece_float():
         input_value=10.5
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str(10.5) == piece_output.get("output_value", None)
@@ -29,7 +29,7 @@ def test_stringpiece_bool():
         input_value=True
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str(True) == piece_output.get("output_value", None)
@@ -40,7 +40,7 @@ def test_stringpiece_list():
         input_value=[1, 2, 3]
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str([1, 2, 3]) == piece_output.get("output_value", None)
@@ -51,7 +51,7 @@ def test_stringpiece_dict():
         input_value={"a": 1, "b": 2}
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str({"a": 1, "b": 2}) == piece_output.get("output_value", None)
@@ -63,7 +63,7 @@ def test_stringpiece_datetime():
         input_value=now,
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str(now) == piece_output.get("output_value", None)
@@ -75,7 +75,7 @@ def test_stringpiece_date():
         input_value=now,
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str(now) == piece_output.get("output_value", None)
@@ -87,7 +87,7 @@ def test_stringpiece_time():
         input_value=now,
     )
     piece_output = piece_dry_run(
-        piece_name="ToStringPiece",
+        piece_name="StringifyPiece",
         input_data=input_data
     )
     assert str(now) == piece_output.get("output_value", None)
