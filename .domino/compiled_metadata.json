@@ -154,5 +154,95 @@
     },
     "secrets_schema": null,
     "source_url": "https://github.com/wiley163/my_domino_pieces/tree/main/pieces/ConfGetterPiece"
-  }
+  },
+  "StringifyPiece": {
+    "name": "StringifyPiece",
+    "dependency": {
+        "dockerfile": null,
+        "requirements_file": "requirements_0.txt"
+    },
+    "tags": [
+        "default",
+        "string"
+    ],
+    "style": {
+        "node_label": "Stringify",
+        "node_type": "default",
+        "node_style": {
+            "backgroundColor": "#ebebeb"
+        },
+        "useIcon": true,
+        "icon_class_name": "solar:text-bold",
+        "iconStyle": {
+            "cursor": "pointer"
+        }
+    },
+    "description": "A Piece that transforms any input to string.",
+    "input_schema": {
+        "description": "StringifyPiece Input Model",
+        "properties": {
+            "input_value": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "items": {},
+                        "type": "array"
+                    },
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "type": "number"
+                    },
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "type": "object"
+                    },
+                    {
+                        "format": "date",
+                        "type": "string"
+                    },
+                    {
+                        "format": "time",
+                        "type": "string"
+                    },
+                    {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                ],
+                "description": "Input value to be turned into string.",
+                "from_upstream": "always",
+                "title": "Input Value"
+            }
+        },
+        "required": [
+            "input_value"
+        ],
+        "title": "InputModel",
+        "type": "object"
+    },
+    "output_schema": {
+        "description": "StringifyPiece Output Model",
+        "properties": {
+            "output_value": {
+                "description": "Input value as a string.",
+                "title": "Output Value",
+                "type": "string"
+            }
+        },
+        "required": [
+            "output_value"
+        ],
+        "title": "OutputModel",
+        "type": "object"
+    },
+    "secrets_schema": null,
+    "source_url": "https://github.com/Tauffer-Consulting/default_domino_pieces/tree/main/pieces/ToStringPiece"
+},
+
 }
