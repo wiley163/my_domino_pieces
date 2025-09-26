@@ -1,6 +1,5 @@
 from domino.base_piece import BasePiece
 from .models import InputModel, OutputModel
-from airflow.models import TaskInstance
 from typing import Dict, Any
 
 class ConfGetterPiece(BasePiece):
