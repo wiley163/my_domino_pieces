@@ -4,12 +4,9 @@
             "dockerfile": null,
             "requirements_file": "requirements_0.txt"
         },
-        "pieces": [
-            "ConfGetterPiece",
-            "StringifyPiece"
+        "pieces": ["StringifyPiece"
         ],
         "secrets": [
-            "EXAMPLE_OPERATOR_SECRET_1"
         ],
         "source_image": "ghcr.io/my_domino_pieces/my_domino_pieces:0.1.0-group0"
     }

@@ -10,7 +10,7 @@ class InputModel(BaseModel):
     input_value: Union[str, list, int, float, bool, dict, dt_date, dt_time, dt_datetime] = Field(
         description='Input value to be turned into string.',
         json_schema_extra={
-            "from_upstream": "never"
+            "from_upstream": "always"
         }
     )
 
