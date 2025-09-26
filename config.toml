@@ -4,5 +4,5 @@ REGISTRY_NAME = "Bigknow"
 REPOSITORY_NAME = "bigknow_pieces"
 REPOSITORY_LABEL = "行业算法插件库"
 
-VERSION = "0.2.4"
+VERSION = "0.2.5"
 
