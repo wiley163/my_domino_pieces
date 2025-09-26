@@ -2,8 +2,8 @@
   "ConfGetterPiece": {
     "name": "ConfGetterPiece",
     "dependency": {
-      "dockerfile": "Dockerfile_1",
-      "requirements_file": "requirements_0.txt"
+        "dockerfile": null,
+        "requirements_file": "requirements_0.txt"
     },
     "tags": ["param", "conf"],
     "style": {
@@ -150,7 +150,7 @@
   "StringifyPiece": {
     "name": "StringifyPiece",
     "dependency": {
-        "dockerfile": "Dockerfile_1",
+        "dockerfile": null,
         "requirements_file": "requirements_0.txt"
     },
     "tags": ["default", "string"],
