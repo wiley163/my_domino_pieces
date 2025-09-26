@@ -1,232 +1,198 @@
 {
-  "ConfGetterPiece": {
-    "name": "ConfGetterPiece",
-    "dependency": {
-        "dockerfile": null,
-        "requirements_file": "requirements_0.txt"
-    },
-    "tags": ["param", "conf"],
-    "style": {
-      "node_label": "参数输入器",
-      "node_type": "default",
-      "node_style": {
-        "backgroundColor": "#ebebeb"
-      },
-      "useIcon": true,
-      "icon_class_name": "lucide:toy-brick",
-      "iconStyle": {
-        "cursor": "pointer"
-      }
-    },
-    "description": "将 Airflow dag_run.conf 中指定的 key 提取成下游可直接连线的输出",
-    "input_schema": {
-      "$defs": {
-        "InputKwargsModel": {
-          "properties": {
-            "kwarg_name": {
-              "default": null,
-              "description": "Argument name.",
-              "from_upstream": "never",
-              "title": "Kwarg Name",
-              "type": "string"
-            },
-            "kwarg_value": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": {},
-                  "type": "array"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "object"
-                },
-                {
-                  "format": "date",
-                  "type": "string"
-                },
-                {
-                  "format": "time",
-                  "type": "string"
-                },
-                {
-                  "format": "date-time",
-                  "type": "string"
-                }
-              ],
-              "default": null,
-              "description": "Argument value.",
-              "from_upstream": "always",
-              "title": "Kwarg Value"
-            }
-          },
-          "title": "InputKwargsModel",
-          "type": "object"
+    "ConfGetterPiece": {
+        "name": "ConfGetterPiece",
+        "dependency": {
+            "dockerfile": "Dockerfile_1",
+            "requirements_file": "requirements_0.txt"
         },
-        "OutputModifierItemType": {
-          "description": "OutputArgsType Enum",
-          "enum": ["string", "integer", "float", "boolean", "array"],
-          "title": "OutputModifierItemType",
-          "type": "string"
+        "tags": [
+            "param",
+            "conf"
+        ],
+        "style": {
+            "node_label": "\u53c2\u6570\u8f93\u5165\u5668",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "lucide:toy-brick",
+            "iconStyle": {
+                "cursor": "pointer"
+            }
         },
-        "OutputModifierModel": {
-          "properties": {
-            "name": {
-              "description": "Name of the output argument.",
-              "from_upstream": "never",
-              "title": "Name",
-              "type": "string"
-            },
-            "type": {
-              "allOf": [
-                {
-                  "$ref": "#/$defs/OutputModifierItemType"
+        "description": "\u5c06 Airflow dag_run.conf \u4e2d\u6307\u5b9a\u7684 key \u63d0\u53d6\u6210\u4e0b\u6e38\u53ef\u76f4\u63a5\u8fde\u7ebf\u7684\u8f93\u51fa",
+        "input_schema": {
+            "$defs": {
+                "OutputModifierItemType": {
+                    "description": "OutputArgsType Enum",
+                    "enum": [
+                        "string",
+                        "integer",
+                        "float",
+                        "boolean",
+                        "array"
+                    ],
+                    "title": "OutputModifierItemType",
+                    "type": "string"
+                },
+                "OutputModifierModel": {
+                    "properties": {
+                        "name": {
+                            "description": "Name of the output argument.",
+                            "from_upstream": "never",
+                            "title": "Name",
+                            "type": "string"
+                        },
+                        "type": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/$defs/OutputModifierItemType"
+                                }
+                            ],
+                            "default": "string",
+                            "description": "Type of the output argument.",
+                            "from_upstream": "never"
+                        },
+                        "description": {
+                            "default": "",
+                            "description": "Description of the output argument.",
+                            "from_upstream": "never",
+                            "title": "Description",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ],
+                    "title": "OutputModifierModel",
+                    "type": "object"
                 }
-              ],
-              "default": "string",
-              "description": "Type of the output argument.",
-              "from_upstream": "never"
             },
-            "description": {
-              "default": "",
-              "description": "Description of the output argument.",
-              "from_upstream": "never",
-              "title": "Description",
-              "type": "string"
+            "description": "ParamBuilder Input Model",
+            "properties": {
+                "output_args": {
+                    "default": [
+                        {
+                            "description": "An example string output",
+                            "name": "output_1",
+                            "type": "string"
+                        },
+                        {
+                            "description": "An example integer output",
+                            "name": "output_2",
+                            "type": "integer"
+                        }
+                    ],
+                    "description": "Output arguments.",
+                    "from_upstream": "never",
+                    "items": {
+                        "$ref": "#/$defs/OutputModifierModel"
+                    },
+                    "title": "Output Args",
+                    "type": "array"
+                }
+            },
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "additionalProperties": true,
+            "description": "ParamBuilder Output Model",
+            "properties": {},
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/wiley163/my_domino_pieces/tree/main/pieces/ConfGetterPiece"
+    },
+    "StringifyPiece": {
+        "name": "StringifyPiece",
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": "requirements_0.txt"
+        },
+        "tags": [
+            "default",
+            "string"
+        ],
+        "style": {
+            "node_label": "To String",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "solar:text-bold",
+            "iconStyle": {
+                "cursor": "pointer"
             }
-          },
-          "required": ["name"],
-          "title": "OutputModifierModel",
-          "type": "object"
-        }
-      },
-      "description": "ParamBuilder Input Model",
-      "properties": {
-        "output_args": {
-          "default": [
-            {
-              "description": "An example string output",
-              "name": "output_1",
-              "type": "string"
+        },
+        "description": "A Piece that transforms any input to string.",
+        "input_schema": {
+            "description": "ToStringPiece Input Model",
+            "properties": {
+                "input_value": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "items": {},
+                            "type": "array"
+                        },
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "object"
+                        },
+                        {
+                            "format": "date",
+                            "type": "string"
+                        },
+                        {
+                            "format": "time",
+                            "type": "string"
+                        },
+                        {
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Input value to be turned into string.",
+                    "from_upstream": "always",
+                    "title": "Input Value"
+                }
             },
-            {
-              "description": "An example integer output",
-              "name": "output_2",
-              "type": "integer"
-            }
-          ],
-          "description": "Output arguments.",
-          "from_upstream": "never",
-          "items": {
-            "$ref": "#/$defs/OutputModifierModel"
-          },
-          "title": "Output Args",
-          "type": "array"
-        }
-      },
-      "title": "InputModel",
-      "type": "object"
-    },
-    "output_schema": {
-      "additionalProperties": true,
-      "description": "ParamBuilder Output Model",
-      "properties": {},
-      "title": "OutputModel",
-      "type": "object"
-    },
-    "secrets_schema": null,
-    "source_url": "https://github.com/wiley163/my_domino_pieces/tree/main/pieces/ConfGetterPiece"
-  },
-  "StringifyPiece": {
-    "name": "StringifyPiece",
-    "dependency": {
-        "dockerfile": null,
-        "requirements_file": "requirements_0.txt"
-    },
-    "tags": ["default", "string"],
-    "style": {
-      "node_label": "Stringify",
-      "node_type": "default",
-      "node_style": {
-        "backgroundColor": "#ebebeb"
-      },
-      "useIcon": true,
-      "icon_class_name": "solar:text-bold",
-      "iconStyle": {
-        "cursor": "pointer"
-      }
-    },
-    "description": "A Piece that transforms any input to string.",
-    "input_schema": {
-      "description": "StringifyPiece Input Model",
-      "properties": {
-        "input_value": {
-          "anyOf": [
-            {
-              "type": "string"
+            "required": [
+                "input_value"
+            ],
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "description": "ToStringPiece Output Model",
+            "properties": {
+                "output_value": {
+                    "description": "Input value as a string.",
+                    "title": "Output Value",
+                    "type": "string"
+                }
             },
-            {
-              "items": {},
-              "type": "array"
-            },
-            {
-              "type": "integer"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "object"
-            },
-            {
-              "format": "date",
-              "type": "string"
-            },
-            {
-              "format": "time",
-              "type": "string"
-            },
-            {
-              "format": "date-time",
-              "type": "string"
-            }
-          ],
-          "description": "Input value to be turned into string.",
-          "from_upstream": "always",
-          "title": "Input Value"
-        }
-      },
-      "required": ["input_value"],
-      "title": "InputModel",
-      "type": "object"
-    },
-    "output_schema": {
-      "description": "StringifyPiece Output Model",
-      "properties": {
-        "output_value": {
-          "description": "Input value as a string.",
-          "title": "Output Value",
-          "type": "string"
-        }
-      },
-      "required": ["output_value"],
-      "title": "OutputModel",
-      "type": "object"
-    },
-    "secrets_schema": null,
-    "source_url": "https://github.com/Tauffer-Consulting/default_domino_pieces/tree/main/pieces/StringifyPiece"
-  }
+            "required": [
+                "output_value"
+            ],
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/wiley163/my_domino_pieces/tree/main/pieces/StringifyPiece"
+    }
 }

@@ -5,10 +5,20 @@
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
-            "StringifyPiece","ConfGetterPiece"
+            "ConfGetterPiece"
         ],
-        "secrets": [
+        "secrets": [],
+        "source_image": "ghcr.io/bigknow/bigknow_pieces:0.2.5-group0"
+    },
+    "group1": {
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": "requirements_0.txt"
+        },
+        "pieces": [
+            "StringifyPiece"
         ],
-        "source_image": "ghcr.io/tauffer-consulting/default_domino_pieces:0.8.1-group0"
+        "secrets": [],
+        "source_image": "ghcr.io/bigknow/bigknow_pieces:0.2.5-group1"
     }
 }
