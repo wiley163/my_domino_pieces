@@ -2,8 +2,7 @@
     "name": "ConfGetterPiece",
     "description": "将 Airflow dag_run.conf 中指定的 key 提取成下游可直接连线的输出",
     "dependency": {
-      "requirements_file": "requirements_0.txt",
-      "dockerfile": null
+      "requirements_file": "requirements_0.txt"
     },
     "tags": [
         "param",
