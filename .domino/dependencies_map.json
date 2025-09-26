@@ -1,7 +1,7 @@
 {
     "group0": {
         "dependency": {
-            "dockerfile": "Dockerfile_1",
+            "dockerfile": null,
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
@@ -10,6 +10,6 @@
         ],
         "secrets": [
         ],
-        "source_image": null
+        "source_image": "ghcr.io/tauffer-consulting/default_domino_pieces:0.8.1-group0"
     }
 }
