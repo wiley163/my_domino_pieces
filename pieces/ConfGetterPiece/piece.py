@@ -11,6 +11,9 @@ class ConfGetterPiece(BasePiece):
         # return OutputModel(conf_dict=extracted)
         # Log inputs
         self.logger.info(f"""
+        self.context:\n{self.context}\n
+        """)
+        self.logger.info(f"""
         Input Output args:\n{input_data.output_args}\n
         """)
         
