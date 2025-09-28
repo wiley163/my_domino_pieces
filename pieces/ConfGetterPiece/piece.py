@@ -1,6 +1,7 @@
 from domino.base_piece import BasePiece
 from .models import InputModel, OutputModel
 from typing import Dict, Any
+import os, json
 
 class ConfGetterPiece(BasePiece):
     def piece_function(self, input_data: InputModel, **kwargs):
@@ -25,10 +26,12 @@ class ConfGetterPiece(BasePiece):
         dag_run_conf = {}
         if dag_run:
             dag_run_conf = dag_run.conf or {} # 如果conf为None，则使用空字典
-        else:
-            dag_run_conf = self.dag_run.conf or {} # 如果conf为None，则使用空字典
+            
+        dag_run_conf = json.loads(os.getenv("AIRFLOW_DAG_RUN_CONF", "{}"))
+
+            
         self.logger.info(f"""
-        dag_run_conf===>:\n{dag_run_conf}\n
+        dag_run_conf2===>:\n{dag_run_conf}\n
         """)
         self.logger.info(f"""
         Input Output args:\n{input_data.output_args}\n
