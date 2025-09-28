@@ -25,6 +25,8 @@ class ConfGetterPiece(BasePiece):
         dag_run_conf = {}
         if dag_run:
             dag_run_conf = dag_run.conf or {} # 如果conf为None，则使用空字典
+        else:
+            dag_run_conf = self.dag_run.conf or {} # 如果conf为None，则使用空字典
         self.logger.info(f"""
         dag_run_conf===>:\n{dag_run_conf}\n
         """)
