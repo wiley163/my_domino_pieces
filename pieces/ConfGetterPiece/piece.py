@@ -10,9 +10,10 @@ class ConfGetterPiece(BasePiece):
         # self.logger.info("提取 conf 成功: %s", extracted)
         # return OutputModel(conf_dict=extracted)
         # Log inputs
-        self.logger.info(f"""
-        self===>:\n{self}\n
-        """)
+        try:
+            self.logger.info(f"self.__dict__: {self.__dict__}")
+        except Exception as e:
+            self.logger.error(f"无法打印 self.__dict__: {e}")
         self.logger.info(f"""
         kwargs===>:\n{kwargs}\n
         """)
