@@ -10,6 +10,12 @@ class ConfGetterPiece(BasePiece):
         # self.logger.info("提取 conf 成功: %s", extracted)
         # return OutputModel(conf_dict=extracted)
         # Log inputs
+        self.logger.info(f"""
+        self===>:\n{self}\n
+        """)
+        self.logger.info(f"""
+        kwargs===>:\n{kwargs}\n
+        """)
         # 1. 从kwargs中安全地获取dag_run对象
         dag_run = kwargs.get('dag_run')
         
