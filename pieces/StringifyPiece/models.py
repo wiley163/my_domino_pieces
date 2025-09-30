@@ -9,9 +9,7 @@ class InputModel(BaseModel):
     """
     input_value: Union[str, list, int, float, bool, dict, dt_date, dt_time, dt_datetime] = Field(
         description='Input value to be turned into string.',
-        json_schema_extra={
-            "from_upstream": "always"
-        }
+        default="{{ dag_run.conf.get('user_id', 'default_user_if_not_found') }}"
     )
 
 
