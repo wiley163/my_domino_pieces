@@ -7,7 +7,7 @@ class InputModel(BaseModel):
     """
     ToStringPiece Input Model
     """
-    input_value: Union[str, list, int, float, bool, dict, dt_date, dt_time, dt_datetime] = Field(
+    input_value: str = Field(
         description='Input value to be turned into string.',
         default="{{ dag_run.conf.get('user_id', 'default_user_if_not_found') }}"
     )
