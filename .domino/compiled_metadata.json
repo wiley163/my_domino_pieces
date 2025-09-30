@@ -166,14 +166,11 @@
                             "type": "string"
                         }
                     ],
+                    "default": "{{ dag_run.conf.get('user_id', 'default_user_if_not_found') }}",
                     "description": "Input value to be turned into string.",
-                    "from_upstream": "always",
                     "title": "Input Value"
                 }
             },
-            "required": [
-                "input_value"
-            ],
             "title": "InputModel",
             "type": "object"
         },
