@@ -3,4 +3,4 @@ REGISTRY_NAME = "wiley163"
 REPOSITORY_NAME = "my_domino_pieces"
 REPOSITORY_LABEL = "行业算法插件库"
 
-VERSION = "0.4.0"
+VERSION = "0.4.1"
