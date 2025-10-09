@@ -10,7 +10,7 @@
         "request"
     ],
     "style": {
-        "node_label": "HTTP Request",
+        "node_label": "BigknowRenyuan插件",
         "icon_class_name": "material-symbols:send"
     }
 }
