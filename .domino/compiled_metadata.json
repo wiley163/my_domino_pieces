@@ -11,7 +11,7 @@
             "request"
         ],
         "style": {
-            "node_label": "HTTP Request",
+            "node_label": "BigknowRenyuan\u63d2\u4ef6",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
