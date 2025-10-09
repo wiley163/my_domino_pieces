@@ -1,4 +1,90 @@
 {
+    "BigknowRenyuanPiece": {
+        "name": "BigknowRenyuanPiece",
+        "dependency": {
+            "dockerfile": null,
+            "requirements_file": "requirements_0.txt"
+        },
+        "tags": [
+            "default",
+            "http",
+            "request"
+        ],
+        "style": {
+            "node_label": "HTTP Request",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "material-symbols:send",
+            "iconStyle": {
+                "cursor": "pointer"
+            }
+        },
+        "description": "BigknowRenyuan\u5916\u90e8\u670d\u52a1\u8c03\u7528.",
+        "input_schema": {
+            "$defs": {
+                "MethodTypes": {
+                    "enum": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "DELETE"
+                    ],
+                    "title": "MethodTypes",
+                    "type": "string"
+                }
+            },
+            "properties": {
+                "url": {
+                    "default": "http://192.168.10.174:9520/api/renyuan",
+                    "description": "URL to make a request to.",
+                    "title": "Url",
+                    "type": "string"
+                },
+                "method": {
+                    "allOf": [
+                        {
+                            "$ref": "#/$defs/MethodTypes"
+                        }
+                    ],
+                    "default": "POST",
+                    "description": "HTTP method to use."
+                },
+                "bearer_token": {
+                    "default": "123456",
+                    "description": "Bearer token to use for authentication.",
+                    "title": "Bearer Token",
+                    "type": "string"
+                },
+                "ry_data": {
+                    "default": "",
+                    "from_upstream": "always",
+                    "title": "Ry Data",
+                    "type": "string"
+                }
+            },
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "properties": {
+                "result": {
+                    "description": "Output data string.",
+                    "title": "Result",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "result"
+            ],
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/wiley163/my_domino_pieces/tree/main/pieces/BigknowRenyuanPiece"
+    },
     "ConfGetterPiece": {
         "name": "ConfGetterPiece",
         "dependency": {

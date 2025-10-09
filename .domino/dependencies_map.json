@@ -5,10 +5,11 @@
             "requirements_file": "requirements_0.txt"
         },
         "pieces": [
+            "BigknowRenyuanPiece",
             "ConfGetterPiece",
             "StringifyPiece"
         ],
         "secrets": [],
-        "source_image": "ghcr.io/wiley163/my_domino_pieces:0.3.8-group0"
+        "source_image": "ghcr.io/wiley163/my_domino_pieces:0.3.9-group0"
     }
 }
