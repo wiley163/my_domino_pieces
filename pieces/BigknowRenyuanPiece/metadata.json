@@ -1,0 +1,16 @@
+{
+    "name": "BigknowRenyuanPiece",
+    "description": "BigknowRenyuan外部服务调用.",
+    "dependency": {
+        "requirements_file": "requirements_0.txt"
+    },
+    "tags": [
+        "default",
+        "http",
+        "request"
+    ],
+    "style": {
+        "node_label": "HTTP Request",
+        "icon_class_name": "material-symbols:send"
+    }
+}
